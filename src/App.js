@@ -5,6 +5,7 @@ import Book from './Book/Book';
 
 class App extends Component {
   state = {
+    newBook: '',
     persons: [
       { name: 'Max', age: 28 },
       { name: 'Manu', age: 29 },
@@ -13,12 +14,12 @@ class App extends Component {
     otherState: 'some other value',
     authors: [
       { 
-        name: 'Jorge Luis Borges', 
+        name: 'JLB', 
         books: [
           'El Libro de Arena',
           'El Aleph',
-          'Ficciones'
-        ]
+          'Ficciones',
+        ],
       },
       { name: 'Adolfo Bioy Casares'},
       { name: 'Philip Dick'}
@@ -46,6 +47,12 @@ class App extends Component {
         { name: 'Stephanie', age: 26 }
       ]
     } )
+  }
+
+  handleBook = (event) => {
+    this.setState( {
+      newBook: event.target.value
+    })
   }
 
   toggleBooks = () => {
@@ -80,7 +87,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <h1>Hi, I'm a React App</h1>
+        <h1>Pruebas de codigo</h1>
        {/*  <p>This is really working!</p>
         <button 
           style={style}
@@ -99,6 +106,9 @@ class App extends Component {
         <Book
           author={this.state.authors[0].name}
           click={this.toggleBooks}
+          changeBook={this.handleBook}
+          book={this.state.newBook}
+          addBook={this.addBook}
         />
         {books}
       </div>
