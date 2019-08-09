@@ -30,27 +30,27 @@ class App extends Component {
   switchNameHandler = (newName) => {
     // console.log('Was clicked!');
     // DON'T DO THIS: this.state.persons[0].name = 'Maximilian';
-    this.setState( {
+    this.setState({
       persons: [
         { name: newName, age: 28 },
         { name: 'Manu', age: 29 },
         { name: 'Stephanie', age: 27 }
       ]
-    } )
+    })
   }
 
   nameChangedHandler = (event) => {
-    this.setState( {
+    this.setState({
       persons: [
         { name: 'Max', age: 28 },
         { name: event.target.value, age: 29 },
         { name: 'Stephanie', age: 26 }
       ]
-    } )
+    })
   }
 
   handleBook = (event) => {
-    this.setState( {
+    this.setState({
       newBook: event.target.value
     })
   }
@@ -59,7 +59,14 @@ class App extends Component {
     const doesShow = this.state.showBooks
     this.setState({ showBooks: !doesShow })
     console.log();
-    
+  }
+
+  addBook = () => {
+    this.state.authors[0].books.push(this.state.newBook)
+    this.setState(
+      this.state
+    )
+    this.state
   }
 
   render () {
